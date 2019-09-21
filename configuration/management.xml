@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<management-context xmlns="http://activemq.org/schema">
+   <!--<connector connector-port="1099"/>-->
+   <authorisation>
+      <whitelist>
+         <entry domain="hawtio"/>
+         <entry domain="org.apache.activemq.artemis"/>
+      </whitelist>
+      <default-access>
+         <access method="list*" roles="admin"/>
+         <access method="get*" roles="admin"/>
+         <access method="is*" roles="admin"/>
+         <access method="set*" roles="admin"/>
+         <access method="*" roles="admin"/>
+      </default-access>
+      <role-access>
+         <match domain="org.apache.activemq.artemis">
+            <access method="list*" roles="admin"/>
+            <access method="get*" roles="admin"/>
+            <access method="is*" roles="admin"/>
+            <access method="set*" roles="admin"/>
+            <access method="*" roles="admin"/>
+         </match>
+         <!--example of how to configure a specific object-->
+         <!--<match domain="org.apache.activemq.artemis" key="subcomponent=queues">
+            <access method="list*" roles="view,update,amq"/>
+            <access method="get*" roles="view,update,amq"/>
+            <access method="is*" roles="view,update,amq"/>
+            <access method="set*" roles="update,amq"/>
+            <access method="*" roles="amq"/>
+         </match>-->
+      </role-access>
+   </authorisation>
+</management-context>

@@ -1,0 +1,39 @@
+---
+lowercaseOutputName: true
+lowercaseOutputLabelNames: true
+rules:
+  - pattern: "org.apache.activemq.artemis<broker=\"([^\"]*)\", component=addresses, address=\"([^\"]*)\"><>NumberOfMessage"
+    name: org_apache_activemq_72_broker_queuesize
+    help: Number of messages on this destination, including any that have been dispatched but not acknowledged
+    type: GAUGE
+    labels:
+        broker: $1
+        component: addresses
+        address: $2
+  - pattern: "org.apache.activemq.artemis<broker=\"([^\"]*)\", component=addresses, address=\"([^\"]*)\", subcomponent=([^\"]*), routing-type=\"([^\"]*)\", queue=\"([^\"]*)\"><>ConsumerCount"
+    name: org_apache_activemq_72_broker_consumercount
+    help: Number of consumers consuming messages from this queue
+    type: GAUGE
+    labels:
+        broker: $1
+        component: addresses
+        address: $2
+        subcomponent: $3
+        routingType: $4
+        queue: $5
+  - pattern: "org.apache.activemq.artemis<broker=\"([^\"]*)\", component=addresses, address=\"([^\"]*)\"><>UnRoutedMessageCount"
+    name: org_apache_activemq_72_broker_unroutedmessagecount
+    help: Number of messages not routed to any bindings
+    type: COUNTER
+    labels:
+        broker: $1
+        component: addresses
+        address: $2
+  - pattern: "org.apache.activemq.artemis<broker=\"([^\"]*)\", component=addresses, address=\"([^\"]*)\"><>RoutedMessageCount"
+    name: org_apache_activemq_72_broker_routedmessagecount
+    help: Number of messages routed to one or more bindings
+    type: COUNTER
+    labels:
+        broker: $1
+        component: addresses
+        address: $2

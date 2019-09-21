@@ -1,0 +1,19 @@
+#!/bin/sh
+
+SRCCONF=/tmp/src/configuration
+SRCAGENT=/tmp/src/agent
+SRCLIB=/tmp/src/lib
+SRCBIN=/tmp/src
+SRCPATCH=/tmp/src/patch
+
+# CONFIGURATION FILES
+if [ -d ${SRCCONF} ]; then
+  echo "Copying config files from project..."
+  cp -v ${SRCCONF}/* $AMQ_HOME/conf/
+fi
+
+# AGENT FILES
+if [ -d ${SRCAGENT} ]; then
+  echo "Copying agent files from project..."
+  cp -v ${SRCAGENT}/* $AMQ_HOME/conf/
+fi
