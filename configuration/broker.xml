@@ -113,6 +113,12 @@
         <address-full-policy>PAGE</address-full-policy>
       </address-setting>
 
+      <address-settings>
+        <address-setting match="test.#">
+          <redistribution-delay>1</redistribution-delay>
+        </address-setting>
+      </address-settings>
+
     </address-settings>
 
     <addresses>
@@ -125,6 +131,9 @@
         <anycast>
           <queue name="ExpiryQueue"/>
         </anycast>
+      </address>
+      <address name="test.myqueue">
+        <anycast/>
       </address>
     </addresses>
   </core>
