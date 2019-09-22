@@ -8,6 +8,7 @@
     urn:activemq:jms https://raw.githubusercontent.com/apache/activemq-artemis/master/artemis-jms-server/src/main/resources/schema/artemis-jms.xsd ">
 
   <core xmlns="urn:activemq:core">
+
     <name>broker</name>
 
     <persistence-enabled>true</persistence-enabled>
@@ -20,11 +21,8 @@
     <journal-min-files>2</journal-min-files>
     <journal-pool-files>10</journal-pool-files>
     <journal-file-size>10M</journal-file-size>
-
     <journal-buffer-timeout>3800000</journal-buffer-timeout>
-
     <journal-max-io>1</journal-max-io>
-
     <disk-scan-period>5000</disk-scan-period>
 
     <!-- once the disk hits this limit the system will block, or close the connection in certain protocols that won't support flow control. -->
@@ -79,6 +77,7 @@
         <discovery-group-ref discovery-group-name="my-discovery-group"/>
       </cluster-connection>
     </cluster-connections>
+
     <security-settings>
       <security-setting match="#">
         <permission type="createNonDurableQueue" roles="admin"/>
@@ -112,11 +111,9 @@
         <message-counter-history-day-limit>10</message-counter-history-day-limit>
         <address-full-policy>PAGE</address-full-policy>
       </address-setting>
-
       <address-setting match="test.#">
         <redistribution-delay>1</redistribution-delay>
       </address-setting>
-
     </address-settings>
 
     <addresses>
