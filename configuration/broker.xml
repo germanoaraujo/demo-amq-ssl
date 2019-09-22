@@ -128,7 +128,9 @@
         </anycast>
       </address>
       <address name="test.myqueue">
-        <anycast/>
+        <anycast>
+          <queue name="test.myqueue"/>
+        </anycast>
       </address>
     </addresses>
   </core>
