@@ -127,9 +127,14 @@
           <queue name="ExpiryQueue"/>
         </anycast>
       </address>
-      <address name="test.myqueue">
+      <address name="test.queue">
         <anycast>
-          <queue name="test.myqueue"/>
+          <queue name="test.queue"/>
+        </anycast>
+      </address>
+      <address name="test.final.queue">
+        <anycast>
+          <queue name="test.final.queue"/>
         </anycast>
       </address>
     </addresses>
